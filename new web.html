@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICST University Park - Excellence in Education</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #E5A823;
+            --accent-color: #800020;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+.welcome-banner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  animation: fadeInOut 10s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 20% {
+    opacity: 0;
+    transform: translate(-50%, -80%);
+  }
+  25%, 70% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  75%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+}
+
+.falling-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.falling-line span {
+  display: inline-block;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 6px;
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 5px #E5A823,
+    0 0 25px #FFD700,
+    0 0 50px #800020;
+  transform: translateY(-100px) rotateX(90deg);
+  opacity: 0;
+  animation: fall 1.5s forwards ease-in-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Animation for letters */
+@keyframes fall {
+  to {
+    transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* WELCOME TO delays */
+.falling-line:nth-child(1) span:nth-child(1) { animation-delay: 2.0s; }
+.falling-line:nth-child(1) span:nth-child(2) { animation-delay: 1.9s; }
+.falling-line:nth-child(1) span:nth-child(3) { animation-delay: 1.8s; }
+.falling-line:nth-child(1) span:nth-child(4) { animation-delay: 1.7s; }
+.falling-line:nth-child(1) span:nth-child(5) { animation-delay: 1.6s; }
+.falling-line:nth-child(1) span:nth-child(6) { animation-delay: 1.5s; }
+.falling-line:nth-child(1) span:nth-child(7) { animation-delay: 1.4s; }
+.falling-line:nth-child(1) span:nth-child(8) { animation-delay: 1.3s; }
+.falling-line:nth-child(1) span:nth-child(9) { animation-delay: 1.2s; }
+.falling-line:nth-child(1) span:nth-child(10) { animation-delay: 1.1s; }
+
+/* ICST delays */
+.falling-line:nth-child(2) span:nth-child(1) { animation-delay: 1.0s; }
+.falling-line:nth-child(2) span:nth-child(2) { animation-delay: 0.9s; }
+.falling-line:nth-child(2) span:nth-child(3) { animation-delay: 0.8s; }
+.falling-line:nth-child(2) span:nth-child(4) { animation-delay: 0.7s; }
+
+
+      
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+.section-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .faculty-intro {
+  margin: 4rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.faculty-intro-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.faculty-image {
+  flex: 1 1 40%;
+}
+
+.faculty-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.faculty-text {
+  flex: 1 1 55%;
+}
+
+.faculty-text h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.faculty-text p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+        /* Programs Section */
+        .programs {
+            margin-bottom: 5rem;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .program-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 5rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        #faculties .section-title h2 {
+    color: var(--accent-color);
+}
+
+#faculties .btn {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+
+        /* News Section */
+        .news-section {
+            margin-bottom: 5rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-content .date {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .news-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .facility-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.facility-item {
+  flex: 1 1 calc(25% - 1.5rem);
+  text-align: center;
+}
+
+.facility-item img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.facility-item h4 {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+}
+
+.facility-description {
+  text-align: center;
+  font-size: 1rem;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        html {
+          scroll-behavior: smooth;
+      }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero-slider {
+                height: 500px;
+            }
+
+            .slide h2 {
+                font-size: 2rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: 400px;
+            }
+
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            /* Center contact info in footer */
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-center {
+    max-width: 500px;
+}
+footer {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="icst logo.jpg" alt="icst logo">
+                <div class="logo-text">
+                    <h1>INTERNATIONAL CAMPUS</h1>
+                    <p>OF SCIENCE AND TECHNOLOGY</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#faculties">FACULTIES</a></li>
+                    <li><a href="#courses">COURSES</a></li>
+                    <li><a href="#research">RESEARCH</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="home">
+<div class="welcome-banner">
+  <div class="falling-line">
+    <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span><span>&nbsp;</span><span>T</span><span>O</span>
+  </div>
+  <div class="falling-line">
+    <span>I</span><span>C</span><span>S</span><span>T</span>
+  </div>
+</div>
+                 
+
+
+        <div class="slide active">
+            <img src="icstfront.jpg" alt="icst uni front view" style="width:100%">
+            <div class="slide-content">
+                <h2>START YOUR IT CAREER WITH ICST</h2>
+                <a href="#" class="btn">Explore Programs</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="icsteve.jpg" alt="evening view of icst uni" style="width:100%">
+            <div class="slide-content">
+                <h2>Re - Search</h2>
+                <p>Work with renowned faculty on groundbreaking research projects.</p>
+                <a href="#" class="btn">Discover Research</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="icstlake.jpg" alt="lakeside view of icst" style="width:100%">
+            <div class="slide-content">
+                <h2>ICST University Life</h2>
+                <p>Experience a tranformative journey with unfogettable experiences.</p>
+                <a href="#" class="btn">See Campus Life</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="about-text">
+                <h3>Welcome to ICST University Park</h3>
+                <p>ICST extends a warm welcome to our esteemed staff, students, parents, guests, and visitors. Whether you are a newly enrolled student commencing your academic voyage or an individual exploring the depth of our university, we are honored to have you join our community.</p>
+                <p>As you peruse our website, you will uncover a realm characterized by academic distinction, leading-edge technology, architectural grandeur, and an aesthetically pleasing learning environment. Our dedicated faculty and staff are steadfast in their commitment to fostering an enriching educational setting, empowering you to achieve excellence both academically and personally.</p>
+                <p>Let us embark together on a journey of learning, innovation, and shared experiences. Once again, a heartfelt welcome to ICST, and please do not hesitate to contact us should you have any inquiries.</p>
+                <a href="#" class="btn">Learn More About Us</a>
+            </div>
+            <div class="about-image">
+                <img src="icstupp.jpg" alt="icst view">
+            </div>
+        </section>
+<!-- Founder Section with ID -->
+<section class="faculty-intro" id="research">
+  <div class="faculty-intro-container">
+    <div class="faculty-image">
+      <img src="hizbullah sir.jpg" alt="Founder">
+    </div>
+    <div class="faculty-text">
+      <h2>THE FOUNDER OF ICST</h2>
+      <p>
+             The International Campus of Science and Technology (ICST) University was founded
+              by Dr. M. L. A. M. Hizbullah, who also served as the former Eastern Province Governor,
+               according to ICST's website. He initiated the university with the goal of providing higher 
+               education opportunities, particularly for students from economically disadvantaged backgrounds,
+                and to address the evolving demands of the labor market. Dr. Hizbullah's vision included a strong
+                 commitment to social responsibility and inclusivity in higher education.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+       <!-- Faculties Section -->
+<section class="news-section" id="faculties">
+    <div class="section-title">
+        <h2>OUR FACULTIES</h2>
+    </div>
+    <div class="news-grid">
+        <div class="news-card">
+            <img src="engineering.jpg" alt="Engineering">
+            <div class="news-content">
+                <a href="#" class="btn">ENGINEERING AND TECHNOLOGY</a>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="it.jpg" alt="Computing and Informatics">
+            <div class="news-content">
+                <a href="#" class="btn">COMPUTING AND INFORMATICS</a>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="management.jpg" alt="Management Studies">
+            <div class="news-content">
+                <a href="#" class="btn">MANAGEMENT STUDIES</a>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="health.jpg" alt="Health Science">
+            <div class="news-content">
+                <a href="#" class="btn">HEALTH SCIENCE</a>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="architecture.jpg" alt="Architecture and Design">
+            <div class="news-content">
+                <a href="#" class="btn">ARCHITECTURE AND DESIGN</a>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="social.jpg" alt="Social Science">
+            <div class="news-content">
+                <a href="#" class="btn">SOCIAL SCIENCE</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </div>
+    <!-- Programs Section -->
+        <section class="courses-section" id="courses">
+    <div class="section-title">
+        <h2>OUR COURSES</h2>
+    </div>
+            <div class="program-grid">
+                <div class="program-card">
+                    <img src="hdit.jpg" alt="hdit">
+                    <div class="program-content">
+                        <h3>HDIT</h3>
+                        <p>equips students with comprehensive knowledge and practical skills in computing, networking, and software development, preparing them for careers in the IT industry.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+              
+                </div>
+                <div class="program-card">
+                    <img src="bait.jpg" alt="bait">
+                    <div class="program-content">
+                        <h3>BAIT</h3>
+                        <p>prepares graduates for employment in the Information Technology environment. Employment opportunities include: Network engineers. Software engineers.</p>
+ <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="hdqs.jpg" alt="hdqs">
+                    <div class="program-content">
+                        <h3>HDQS</h3>
+                        <p>equips individuals with the skills to manage construction project costs and finances, ensuring projects are completed within budget and to the required standards.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                      <div class="program-card">
+                    <img src="acca.jpg" alt="acca">
+                    <div class="program-content">
+                        <h3>ACCA</h3>
+                        <p> a global professional accounting body known for its rigorous qualifications and global recognition.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+
+              
+
+    <div class="main-content">
+        <!-- facilities Section -->
+        <section class="news-section" id="facilities">
+            <div class="section-title">
+                <h2>FACILITIES</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="library.jpg"alt="library">
+                    <div class="news-content">
+                      <a href="#" class="btn">LIBRARY</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="main auditorium.jpg" alt="main auditorium">
+                    <div class="news-content">
+                         <a href="#" class="btn">MAIN AUDITORIUM</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="senet.jpg" alt="senate room">
+                    <div class="news-content">
+                      <a href="#" class="btn">SENATE ROOM</a>
+                    </div>
+                          </div>
+                <div class="news-card">
+                    <img src="IT lab.jpg" alt="lab">
+                    <div class="news-content">
+                         <a href="#" class="btn">IT LABS</a>
+                    </div>
+                     </div>
+                <div class="news-card">
+                    <img src="cafe.jpg" alt="cafe">
+                    <div class="news-content">
+                         <a href="#" class="btn">UNI CAFE</a>
+                    </div>
+                     </div>
+                <div class="news-card">
+                    <img src="hostel.jpg" alt="hostel">
+                    <div class="news-content">
+                         <a href="#" class="btn">HOSTEL</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    l
+<div class="section">
+  <h2 class="section-title">PRAYER ROOMS</h2>
+<div class="facility-row">
+    <div class="facility-item">
+      <img src="muslim.jpg" alt="Library">
+      </div>
+    <div class="facility-item">
+      <img src="buddhist.jpg" alt="Auditorium">
+    </div>
+    <div class="facility-item">
+      <img src="hindu.jpg" alt="Cafeteria">
+      </div>
+    <div class="facility-item">
+      <img src="cristian.jpg" alt="Hostel">
+      </div>
+</div>
+
+  <div class="facility-description">
+    <p>
+      ICST  university dedicated spaces for different religious practices, reflecting the country's diverse religious landscape. Typically, these spaces include areas for Buddhist, Hindu, Islamic, and Christian worship, promoting religious harmony within the academic community.
+    </p>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+   <footer id="contact">
+    <div class="footer-container">
+        <div class="footer-column contact-center">
+            <h3>Contact Us</h3>
+            <p>ICST University Park,<br>
+                Punanai<br>
+                Phone: +94 74 3444 444<br>
+                Email: <a href="mailto:info@icst.edu.lk" style="color: #ddd;">info@icst.edu.lk</a>
+</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i>FB</i></a>
+                <a href="#" aria-label="Twitter"><i>TW</i></a>
+                <a href="#" aria-label="Instagram"><i>IG</i></a>
+                <a href="#" aria-label="LinkedIn"><i>LI</i></a>
+                <a href="#" aria-label="YouTube"><i>YT</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2023 Prestige University. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+    <script>
+        // Auto Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Initial slide show
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
+
